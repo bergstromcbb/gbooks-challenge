@@ -1,0 +1,2256 @@
+From f15df5ec24acef018c810eaaa45985886fdc540b Mon Sep 17 00:00:00 2001
+From: christina <bergstromcbb@gmail.com>
+Date: Tue, 12 Feb 2019 21:25:40 -0500
+Subject: [PATCH] new project - christina bergstrom
+
+---
+ css/component.css        |  103 +++++
+ css/demo.css             |  204 +++++++++
+ css/normalize.css        |    1 +
+ css/set1.css             | 1100 ++++++++++++++++++++++++++++++++++++++++++++++
+ css/styles.css           |  284 ++++++++++++
+ css/styles.less          |  247 +++++++++++
+ images/favicon-16x16.png |  Bin 0 -> 680 bytes
+ images/favicon-32x32.png |  Bin 0 -> 1644 bytes
+ index.html               |   81 +++-
+ main.js                  |   88 +++-
+ 10 files changed, 2077 insertions(+), 31 deletions(-)
+ create mode 100755 css/component.css
+ create mode 100644 css/demo.css
+ create mode 100644 css/normalize.css
+ create mode 100644 css/set1.css
+ create mode 100644 css/styles.css
+ create mode 100644 css/styles.less
+ create mode 100644 images/favicon-16x16.png
+ create mode 100644 images/favicon-32x32.png
+
+diff --git a/css/component.css b/css/component.css
+new file mode 100755
+index 0000000..3f549da
+--- /dev/null
++++ b/css/component.css
+@@ -0,0 +1,103 @@
++/* Header */
++.large-header {
++	position: relative;
++	width: 100%;
++	background: #333;
++	overflow: hidden;
++	background-size: cover;
++	background-position: center center;
++	z-index: 1;
++}
++
++.demo-1 .large-header {
++	background-image: url('../img/demo-1-bg.jpg');
++}
++
++.demo-2 .large-header {
++	background-image: url('../img/demo-2-bg.jpg');
++	background-position: center bottom;
++}
++
++.demo-3 .large-header {
++	background: #7f8c8d;
++}
++
++.demo-4 .large-header {
++	background: #f9f1e9;
++}
++
++.main-title {
++	position: absolute;
++	margin: 0;
++	padding: 0;
++	color: white;
++	text-align: center;
++	top: 30%;
++	left: 50%;
++	-webkit-transform: translate3d(-50%,-50%,0);
++	transform: translate3d(-50%,-50%,0);
++}
++
++.demo-1 .main-title, 
++.demo-3 .main-title {
++	text-transform: uppercase;
++	font-size: 4.2em;
++	letter-spacing: 0.1em;
++}
++
++.demo-2 .main-title {
++	font-family: 'Clicker Script', cursive;
++	font-weight: normal;
++	font-size: 8em;
++	padding-left: 10px;
++	text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
++}
++
++.demo-2 .main-title::before {
++	content: '';
++	width: 20vw;
++	height: 20vw;
++	min-width: 3.5em;
++	min-height: 3.5em;
++	background: url(../img/deco.svg) no-repeat center center;
++	background-size: cover;
++	position: absolute;
++	top: 50%;
++	left: 50%;
++	border-radius: 50%;
++	z-index: -1;
++	-webkit-transform: translate3d(-50%,-50%,0);
++	transform: translate3d(-50%,-50%,0);
++}
++
++.demo-3 .main-title {
++	padding: 10px 40px;
++	border: 10px double white;
++	text-transform: uppercase;
++	background: rgba(255, 255, 255, 0.425);
++	font-family: Quicksand, sans-serif;
++}
++
++.demo-4 .main-title {
++	font-size: 6em;
++	font-weight: 300;
++	padding: 10px 30px;
++	text-transform: uppercase;
++	color: #222;
++}
++
++.main-title .thin {
++	font-weight: 200;
++}
++
++@media only screen and (max-width : 768px) {
++	.demo-1 .main-title, 
++	.demo-3 .main-title,
++	.demo-4 .main-title {
++		font-size: 3em;
++	}
++
++	.demo-2 .main-title {
++		font-size: 4em;
++	}
++}
+\ No newline at end of file
+diff --git a/css/demo.css b/css/demo.css
+new file mode 100644
+index 0000000..796e028
+--- /dev/null
++++ b/css/demo.css
+@@ -0,0 +1,204 @@
++
++@font-face {
++	font-weight: normal;
++	font-style: normal;
++	font-family: 'codropsicons';
++	src:url('../fonts/codropsicons/codropsicons.eot');
++	src:url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
++		url('../fonts/codropsicons/codropsicons.woff') format('woff'),
++		url('../fonts/codropsicons/codropsicons.ttf') format('truetype'),
++		url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
++}
++
++*, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; }
++.clearfix:before, .clearfix:after { content: ''; display: table; }
++.clearfix:after { clear: both; }
++
++/* body {
++	background: #f9f7f6;
++	color: #404d5b;
++	font-weight: 500;
++	font-size: 1.05em;
++} */
++
++a {
++	color: #2fa0ec;
++	text-decoration: none;
++	outline: none;
++}
++
++a:hover, a:focus {
++	color: #404d5b;
++}
++
++.container {
++	margin: 0 auto;
++	text-align: center;
++	overflow: hidden;
++}
++
++.content {
++	font-size: 150%;
++	/* padding: 3em 0; */
++}
++
++.content h2 {
++	margin: 0 0 2em;
++	opacity: 0.1;
++}
++
++.content p {
++	margin: 1em 0;
++	padding: 5em 0 0 0;
++	font-size: 0.65em;
++}
++
++.bgcolor-1 { background: #f0efee; }
++.bgcolor-2 { background: #f9f9f9; }
++.bgcolor-3 { background: #e8e8e8; }
++.bgcolor-4 { background: #2f3238; color: #fff; }
++.bgcolor-5 { background: #df6659; color: #521e18; }
++.bgcolor-6 { background: #2fa8ec; color: #fff;}
++.bgcolor-7 { background: #d0d6d6; }
++.bgcolor-8 { background: #3d4444; color: #fff; }
++.bgcolor-9 { background: #8781bd; color: #fff; }
++.bgcolor-10 { background: #6C6C6C; }
++
++body .nomargin-bottom {
++	margin-bottom: 0;
++}
++
++/* Header */
++.codrops-header {
++	padding: 3em 190px 4em;
++	letter-spacing: -1px;
++}
++
++.codrops-header h1 {
++	font-weight: 800;
++	font-size: 4em;
++	line-height: 1;
++	margin: 0.25em 0 0;
++}
++
++.codrops-header h1 span {
++	display: block;
++	font-size: 50%;
++	font-weight: 400;
++	padding: 0.325em 0 1em 0;
++	color: #c3c8cd;
++}
++
++/* Demos nav */
++.codrops-demos a {
++	text-transform: uppercase;
++	letter-spacing: 1px;
++	font-weight: bold;
++	font-size: 0.85em;
++	display: inline-block;
++	margin: 0 1em;
++	font-family: "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
++}
++
++.codrops-demos a.current-demo {
++	border-bottom: 2px solid;
++	color: #404d5b;
++}
++
++/* Top Navigation Style */
++.codrops-links {
++	position: relative;
++	display: inline-block;
++	white-space: nowrap;
++	font-size: 1.25em;
++	text-align: center;
++}
++
++.codrops-links::after {
++	position: absolute;
++	top: 0;
++	left: 50%;
++	margin-left: -1px;
++	width: 2px;
++	height: 100%;
++	background: #dbdbdb;
++	content: '';
++	-webkit-transform: rotate3d(0,0,1,22.5deg);
++	transform: rotate3d(0,0,1,22.5deg);
++}
++
++.codrops-icon {
++	display: inline-block;
++	margin: 0.5em;
++	padding: 0em 0;
++	width: 1.5em;
++	text-decoration: none;
++}
++
++.codrops-icon span {
++	display: none;
++}
++
++.codrops-icon:before {
++	margin: 0 5px;
++	text-transform: none;
++	font-weight: normal;
++	font-style: normal;
++	font-variant: normal;
++	font-family: 'codropsicons';
++	line-height: 1;
++	speak: none;
++	-webkit-font-smoothing: antialiased;
++}
++
++.codrops-icon--drop:before {
++	content: "\e001";
++}
++
++.codrops-icon--prev:before {
++	content: "\e004";
++}
++
++/* Related demos */
++.content--related {
++	text-align: center;
++	color: #D8DADB;
++	font-weight: bold;
++}
++
++.media-item {
++	display: inline-block;
++	padding: 1em;
++	vertical-align: top;
++	-webkit-transition: color 0.3s;
++	transition: color 0.3s;
++}
++
++.media-item__img {
++	opacity: 0.8;
++	-webkit-transition: opacity 0.3s;
++	transition: opacity 0.3s;
++}
++
++.media-item:hover .media-item__img,
++.media-item:focus .media-item__img {
++	opacity: 1;
++}
++
++.media-item__title {
++	font-size: 0.75em;
++	margin: 0;
++	padding: 0.5em;
++}
++
++@media screen and (max-width: 50em) {
++	.codrops-header {
++		padding: 3em 10% 4em;
++	}
++}
++
++@media screen and (max-width: 40em) {
++	.codrops-header h1 {
++		font-size: 2.8em;
++	}
++}
+diff --git a/css/normalize.css b/css/normalize.css
+new file mode 100644
+index 0000000..77feb20
+--- /dev/null
++++ b/css/normalize.css
+@@ -0,0 +1 @@
++article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}body{margin:0;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;margin:0.67em 0;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:bold;}dfn{font-style:italic;}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em;}pre{white-space:pre-wrap;}q{quotes:"\201C" "\201D" "\2018" "\2019";}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-0.5em;}sub{bottom:-0.25em;}img{border:0;}svg:not(:root){overflow:hidden;}figure{margin:0;}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em;}legend{border:0;padding:0;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,select{text-transform:none;}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;}button[disabled],html input[disabled]{cursor:default;}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none;}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}
+\ No newline at end of file
+diff --git a/css/set1.css b/css/set1.css
+new file mode 100644
+index 0000000..e21059b
+--- /dev/null
++++ b/css/set1.css
+@@ -0,0 +1,1100 @@
++.input {
++	position: relative;
++	z-index: 1;
++	display: inline-block;
++	margin: 1em;
++	max-width: 350px;
++	width: calc(100% - 2em);
++	vertical-align: top;
++}
++
++.input__field {
++	position: relative;
++	display: block;
++	float: right;
++	padding: 0.8em;
++	width: 60%;
++	border: none;
++	border-radius: 0;
++	background: #f0f0f0;
++	color: #aaa;
++	font-weight: bold;
++	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
++	-webkit-appearance: none; /* for box shadows to show on iOS */
++}
++
++.input__field:focus {
++	outline: none;
++}
++
++.input__label {
++	display: inline-block;
++	float: right;
++	padding: 0 1em;
++	width: 80% !important;
++	color: #6a7989;
++	font-weight: bold;
++	font-size: 70.25%;
++	-webkit-font-smoothing: antialiased;
++    -moz-osx-font-smoothing: grayscale;
++	-webkit-touch-callout: none;
++	-webkit-user-select: none;
++	-khtml-user-select: none;
++	-moz-user-select: none;
++	-ms-user-select: none;
++	user-select: none;
++}
++
++.input__label-content {
++	position: relative;
++	display: block;
++	padding: 1.6em 0;
++	width: 100%;
++}
++
++.graphic {
++	position: absolute;
++	top: 0;
++	left: 0;
++	fill: none;
++}
++
++.icon {
++	color: #ddd;
++	font-size: 150%;
++}
++
++/* Individual styles */
++
++/* Haruki */
++
++.input--haruki {
++	margin: 4em 1em 1em;
++}
++
++.input__field--haruki {
++	padding: 0.4em 0.25em;
++	width: 100%;
++	background: transparent;
++	color: #AFB5BB;
++	font-size: 1.55em;
++}
++
++.input__label--haruki {
++	position: absolute;
++	width: 100%;
++	text-align: left;
++	pointer-events: none;
++}
++
++.input__label-content--haruki {
++	-webkit-transition: -webkit-transform 0.3s;
++	transition: transform 0.3s;
++}
++
++.input__label--haruki::before,
++.input__label--haruki::after {
++	content: '';
++	position: absolute;
++	left: 0;
++	z-index: -1;
++	width: 100%;
++	height: 4px;
++	background: #6a7989;
++	-webkit-transition: -webkit-transform 0.3s;
++	transition: transform 0.3s;
++}
++
++.input__label--haruki::before {
++	top: 0;
++}
++
++.input__label--haruki::after {
++	bottom: 0;
++}
++
++.input__field--haruki:focus + .input__label--haruki .input__label-content--haruki,
++.input--filled .input__label-content--haruki {
++	-webkit-transform: translate3d(0, -90%, 0);
++	transform: translate3d(0, -90%, 0);
++}
++
++.input__field--haruki:focus + .input__label--haruki::before,
++.input--filled .input__label--haruki::before {
++	-webkit-transform: translate3d(0, -0.5em, 0);
++	transform: translate3d(0, -0.5em, 0);
++}
++
++.input__field--haruki:focus + .input__label--haruki::after,
++.input--filled .input__label--haruki::after {
++	-webkit-transform: translate3d(0, 0.5em, 0);
++	transform: translate3d(0, 0.5em, 0);
++}
++
++/* Hoshi */
++.input--hoshi {
++	overflow: hidden;
++}
++
++.input__field--hoshi {
++	margin-top: 1em;
++	padding: 0.85em 0.15em;
++	width: 100%;
++	background: transparent;
++	color: #595F6E;
++}
++
++.input__label--hoshi {
++	position: absolute;
++	bottom: 0;
++	left: 0;
++	padding: 0 0.25em;
++	width: 100%;
++	height: calc(100% - 1em);
++	text-align: left;
++	pointer-events: none;
++}
++
++.input__label-content--hoshi {
++	position: absolute;
++}
++
++.input__label--hoshi::before,
++.input__label--hoshi::after {
++	content: '';
++	position: absolute;
++	top: 0;
++	left: 0;
++	width: 100%;
++	height: calc(100% - 10px);
++	border-bottom: 1px solid #B9C1CA;
++}
++
++.input__label--hoshi::after {
++	margin-top: 2px;
++	border-bottom: 4px solid red;
++	-webkit-transform: translate3d(-100%, 0, 0);
++	transform: translate3d(-100%, 0, 0);
++	-webkit-transition: -webkit-transform 0.3s;
++	transition: transform 0.3s;
++}
++
++.input__label--hoshi-color-1::after {
++	border-color: hsl(200, 100%, 50%);
++}
++
++.input__label--hoshi-color-2::after {
++	border-color: hsl(160, 100%, 50%);
++}
++
++.input__label--hoshi-color-3::after {
++	border-color: hsl(20, 100%, 50%);
++}
++
++.input__field--hoshi:focus + .input__label--hoshi::after,
++.input--filled .input__label--hoshi::after {
++	-webkit-transform: translate3d(0, 0, 0);
++	transform: translate3d(0, 0, 0);
++}
++
++.input__field--hoshi:focus + .input__label--hoshi .input__label-content--hoshi,
++.input--filled .input__label-content--hoshi {
++	-webkit-animation: anim-1 0.3s forwards;
++	animation: anim-1 0.3s forwards;
++}
++
++@-webkit-keyframes anim-1 {
++	50% {
++		opacity: 0;
++		-webkit-transform: translate3d(1em, 0, 0);
++		transform: translate3d(1em, 0, 0);
++	}
++	51% {
++		opacity: 0;
++		-webkit-transform: translate3d(-1em, -40%, 0);
++		transform: translate3d(-1em, -40%, 0);
++	}
++	100% {
++		opacity: 1;
++		-webkit-transform: translate3d(0, -40%, 0);
++		transform: translate3d(0, -40%, 0);
++	}
++}
++
++@keyframes anim-1 {
++	50% {
++		opacity: 0;
++		-webkit-transform: translate3d(1em, 0, 0);
++		transform: translate3d(1em, 0, 0);
++	}
++	51% {
++		opacity: 0;
++		-webkit-transform: translate3d(-1em, -40%, 0);
++		transform: translate3d(-1em, -40%, 0);
++	}
++	100% {
++		opacity: 1;
++		-webkit-transform: translate3d(0, -40%, 0);
++		transform: translate3d(0, -40%, 0);
++	}
++}
++
++/* Kuro */
++.input--kuro {
++	max-width: 320px;
++	margin-bottom: 3em;
++}
++
++.input__field--kuro {
++	width: 100%;
++	background: transparent;
++	color: #9196A1;
++	opacity: 0;
++	text-align: center;
++	-webkit-transition: opacity 0.3s;
++	transition: opacity 0.3s;
++}
++
++.input__label--kuro {
++	position: absolute;
++	left: 0;
++	width: 100%;
++	color: #df6589;
++	pointer-events: none;
++}
++
++.input__label--kuro::before,
++.input__label--kuro::after {
++	content: '';
++	position: absolute;
++	top: 0;
++	left: 0;
++	width: 50%;
++	height: 100%;
++	border: 4px solid #747981;
++	-webkit-transition: -webkit-transform 0.3s;
++	transition: transform 0.3s;
++}
++
++.input__label--kuro::before {
++	border-right: none;
++}
++
++.input__label--kuro::after {
++	left: 50%;
++	border-left: none;
++}
++
++.input__field--kuro:focus,
++.input--filled .input__field--kuro {
++	opacity: 1;
++	-webkit-transition-delay: 0.3s;
++	transition-delay: 0.3s;
++}
++
++.input__field--kuro:focus + .input__label--kuro::before,
++.input--filled .input__label--kuro::before {
++	-webkit-transform: translate3d(-10%, 0, 0);
++	transform: translate3d(-10%, 0, 0);
++}
++
++.input__field--kuro:focus + .input__label--kuro::after,
++.input--filled .input__label--kuro::after {
++	-webkit-transform: translate3d(10%, 0, 0);
++	transform: translate3d(10%, 0, 0);
++}
++
++.input__field--kuro:focus + .input__label--kuro .input__label-content--kuro,
++.input--filled .input__label-content--kuro {
++	-webkit-animation: anim-2 0.3s forwards;
++	animation: anim-2 0.3s forwards;
++}
++
++@-webkit-keyframes anim-2 {
++	50% {
++		opacity: 0;
++		-webkit-transform: scale3d(0.3, 0.3, 1);
++		transform: scale3d(0.3, 0.3, 1);
++	}
++	51% {
++		opacity: 0;
++		-webkit-transform: translate3d(0, 3.7em, 0) scale3d(0.3, 0.3, 1);
++		transform: translate3d(0, 3.7em, 0) scale3d(0.3, 0.3, 1);
++	}
++	100% {
++		opacity: 1;
++		-webkit-transform: translate3d(0, 3.7em, 0);
++		transform: translate3d(0, 3.7em, 0);
++	}
++}
++
++@keyframes anim-2 {
++	50% {
++		opacity: 0;
++		-webkit-transform: scale3d(0.3, 0.3, 1);
++		transform: scale3d(0.3, 0.3, 1);
++	}
++	51% {
++		opacity: 0;
++		-webkit-transform: translate3d(0, 3.7em, 0) scale3d(0.3, 0.3, 1);
++		transform: translate3d(0, 3.7em, 0) scale3d(0.3, 0.3, 1);
++	}
++	100% {
++		opacity: 1;
++		-webkit-transform: translate3d(0, 3.7em, 0);
++		transform: translate3d(0, 3.7em, 0);
++	}
++}
++
++/* Jiro */
++.input--jiro {
++	margin-top: 2em;
++}
++
++.input__field--jiro {
++	padding: 0.85em 0.5em;
++	width: 100%;
++	background: transparent;
++	color: #DDE2E2;
++	opacity: 0;
++	-webkit-transition: opacity 0.3s;
++	transition: opacity 0.3s;
++}
++
++.input__label--jiro {
++	position: absolute;
++	left: 0;
++	padding: 0 0.85em;
++	width: 100%;
++	height: 100%;
++	text-align: left;
++	pointer-events: none;
++}
++
++.input__label-content--jiro {
++	-webkit-transition: -webkit-transform 0.3s 0.3s;
++	transition: transform 0.3s 0.3s;
++}
++
++.input__label--jiro::before,
++.input__label--jiro::after {
++	content: '';
++	position: absolute;
++	top: 0;
++	left: 0;
++	width: 100%;
++	height: 100%;
++	-webkit-transition: -webkit-transform 0.3s;
++	transition: transform 0.3s;
++}
++
++.input__label--jiro::before {
++	border-top: 2px solid #6a7989;
++	-webkit-transform: translate3d(0, 100%, 0) translate3d(0, -2px, 0);
++	transform: translate3d(0, 100%, 0) translate3d(0, -2px, 0);
++	-webkit-transition-delay: 0.3s;
++	transition-delay: 0.3s;
++}
++
++.input__label--jiro::after {
++	z-index: -1;
++	background: #6a7989;
++	-webkit-transform: scale3d(1, 0, 1);
++	transform: scale3d(1, 0, 1);
++	-webkit-transform-origin: 50% 0%;
++	transform-origin: 50% 0%;
++}
++
++.input__field--jiro:focus,
++.input--filled .input__field--jiro {
++	opacity: 1;
++	-webkit-transition-delay: 0.3s;
++	transition-delay: 0.3s;
++}
++
++.input__field--jiro:focus + .input__label--jiro .input__label-content--jiro,
++.input--filled .input__label-content--jiro {
++	-webkit-transform: translate3d(0, -80%, 0);
++	transform: translate3d(0, -80%, 0);
++	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
++	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
++}
++
++.input__field--jiro:focus + .input__label--jiro::before,
++.input--filled .input__label--jiro::before {
++	-webkit-transition-delay: 0s;
++	transition-delay: 0s;
++}
++
++.input__field--jiro:focus + .input__label--jiro::before,
++.input--filled .input__label--jiro::before {
++	-webkit-transform: translate3d(0, 0, 0);
++	transform: translate3d(0, 0, 0);
++}
++
++.input__field--jiro:focus + .input__label--jiro::after,
++.input--filled .input__label--jiro::after {
++	-webkit-transform: scale3d(1, 1, 1);
++	transform: scale3d(1, 1, 1);
++	-webkit-transition-delay: 0.3s;
++	transition-delay: 0.3s;
++	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
++	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
++}
++
++/* Minoru */
++.input__field--minoru {
++	width: 100%;
++	background: #fff;
++	box-shadow: 0px 0px 0px 2px transparent;
++	color: #eca29b;
++	-webkit-transition: box-shadow 0.3s;
++	transition: box-shadow 0.3s;
++}
++
++.input__label--minoru {
++	padding: 0;
++	width: 100%;
++	text-align: left;
++}
++
++.input__label--minoru::after {
++	content: '';
++  	position: absolute;
++  	top: 0;
++  	z-index: -1;
++  	width: 100%;
++  	height: 4em;
++	box-shadow: 0px 0px 0px 0px;
++	color: rgba(199,152,157, 0.6);
++}
++
++.input__field--minoru:focus {
++	box-shadow: 0px 0px 0px 2px #eca29b;
++}
++
++.input__field--minoru:focus + .input__label--minoru {
++	pointer-events: none;
++}
++
++.input__field--minoru:focus + .input__label--minoru::after {
++	-webkit-animation: anim-shadow 0.3s forwards;
++	animation: anim-shadow 0.3s forwards;
++}
++
++@-webkit-keyframes anim-shadow {
++	to {
++		box-shadow: 0px 0px 100px 50px;
++    	opacity: 0;
++	}
++}
++
++@keyframes anim-shadow {
++	to {
++		box-shadow: 0px 0px 100px 50px;
++    	opacity: 0;
++	}
++}
++
++.input__label-content--minoru {
++	padding: 0.75em 0.15em;
++}
++
++/* Yoko */
++.input__field--yoko {
++	z-index: 10;
++	width: 100%;
++	background: transparent;
++	color: #f5f5f5;
++	opacity: 0;
++	-webkit-transition: opacity 0.3s;
++	transition: opacity 0.3s;
++}
++
++.input__label--yoko {
++	position: relative;
++	width: 100%;
++	color: #b04b40;
++	text-align: left;
++}
++
++.input__label--yoko::before {
++	content: '';
++	position: absolute;
++	bottom: 100%;
++	left: 0;
++	width: 100%;
++	height: 4em;
++	background: #c5564a;
++	-webkit-transform: perspective(1000px) rotate3d(1, 0, 0, 90deg);
++	transform: perspective(1000px) rotate3d(1, 0, 0, 90deg);
++	-webkit-transform-origin: 50% 100%;
++	transform-origin: 50% 100%;
++	-webkit-transition: -webkit-transform 0.3s;
++	transition: transform 0.3s;
++}
++
++.input__label--yoko::after {
++	content: '';
++	position: absolute;
++	top: 0;
++	left: 0;
++	width: 100%;
++	height: 0.25em;
++	background: #ad473c;
++	-webkit-transform-origin: 50% 0%;
++	transform-origin: 50% 0%;
++	-webkit-transition: -webkit-transform 0.3s;
++	transition: transform 0.3s;
++}
++
++.input__label-content--yoko {
++	padding: 0.75em 0;
++}
++
++.input__field--yoko:focus,
++.input--filled .input__field--yoko {
++	opacity: 1;
++	-webkit-transition-delay: 0.3s;
++	transition-delay: 0.3s;
++}
++
++.input__field--yoko:focus + .input__label--yoko::before,
++.input--filled .input__label--yoko::before {
++	-webkit-transform: perspective(1000px) rotate3d(1, 0, 0, 0deg);
++	transform: perspective(1000px) rotate3d(1, 0, 0, 0deg);
++}
++
++.input__field--yoko:focus + .input__label--yoko,
++.input--filled .input__label--yoko {
++	pointer-events: none;
++}
++
++.input__field--yoko:focus + .input__label--yoko::after,
++.input--filled .input__label--yoko::after {
++	-webkit-transform: perspective(1000px) rotate3d(1, 0, 0, -90deg);
++	transform: perspective(1000px) rotate3d(1, 0, 0, -90deg);
++}
++
++/* Kyo */
++.input--kyo {
++	z-index: auto;
++}
++
++.input__field--kyo {
++	padding: 0.85em 1.5em;
++	width: 100%;
++	border-radius: 2em;
++	background: #fff;
++	color: #535d92;
++}
++
++.input__label--kyo {
++	z-index: 0;
++	padding: 0 0 0 2em;
++	width: 100%;
++	text-align: left;
++}
++
++.input__label--kyo::after {
++	content: '';
++	position: fixed;
++	top: 0;
++	left: 0;
++	z-index: 1000;
++	width: 100%;
++	height: 100%;
++	background: rgba(11, 43, 205, 0.6);
++	opacity: 0;
++	-webkit-transition: opacity 0.3s;
++	transition: opacity 0.3s;
++	pointer-events: none;
++}
++
++.input__label-content--kyo {
++	padding: 0.5em 0;
++}
++
++.input__field--kyo:focus,
++.input__field--kyo:focus +  .input__label--kyo .input__label-content--kyo {
++	z-index: 10000;
++}
++
++.input__field--kyo:focus + .input__label--kyo {
++	color: #fff;
++}
++
++.input__field--kyo:focus + .input__label--kyo::after {
++	opacity: 1;
++}
++
++/* Akira */
++.input--akira {
++	margin-top: 2em;
++}
++
++.input__field--akira {
++	position: absolute;
++	top: 0;
++	left: 0;
++	z-index: 10;
++	display: block;
++	padding: 0 1em;
++	width: 100%;
++	height: 100%;
++	background: transparent;
++	text-align: center;
++}
++
++.input__label--akira {
++	padding: 0;
++	width: 100%;
++	background: #696a6e;
++	color: #cc6055;
++	cursor: text;
++}
++
++.input__label--akira::before {
++	content: '';
++	position: absolute;
++	top: 0;
++	left: 0;
++	width: 100%;
++	height: 100%;
++	background: #2f3238;
++	-webkit-transform: scale3d(0.97, 0.85, 1);
++	transform: scale3d(0.97, 0.85, 1);
++	-webkit-transition: -webkit-transform 0.3s;
++	transition: transform 0.3s;
++}
++
++.input__label-content--akira {
++	-webkit-transition: -webkit-transform 0.3s;
++	transition: transform 0.3s;
++}
++
++.input__field--akira:focus + .input__label--akira::before,
++.input--filled .input__label--akira::before {
++	-webkit-transform: scale3d(0.99, 0.95, 1);
++	transform: scale3d(0.99, 0.95, 1);
++}
++
++.input__field--akira:focus + .input__label--akira,
++.input--filled .input__label--akira {
++	cursor: default;
++	pointer-events: none;
++}
++
++.input__field--akira:focus + .input__label--akira .input__label-content--akira,
++.input--filled .input__label-content--akira {
++	-webkit-transform: translate3d(0, -3.5em, 0);
++	transform: translate3d(0, -3.5em, 0);
++}
++
++/* Ichiro */
++.input--ichiro {
++	margin-top: 2em;
++}
++
++.input__field--ichiro {
++	position: absolute;
++	top: 4px;
++	left: 4px;
++	z-index: 100;
++	display: block;
++	padding: 0 0.55em;
++	width: 92%;
++	height: calc(100% - 8px);
++	background: #f0f0f0;
++	color: #7F8994;
++	opacity: 0;
++	-webkit-transform: scale3d(1, 0, 1);
++	transform: scale3d(1, 0, 1);
++	-webkit-transform-origin: 50% 100%;
++	transform-origin: 50% 100%;
++	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
++	transition: opacity 0.3s, transform 0.3s;
++}
++
++.input__label--ichiro {
++	width: 100%;
++	text-align: left;
++	cursor: text;
++}
++
++.input__label--ichiro::before {
++	content: '';
++	position: absolute;
++	top: 0;
++	left: 0;
++	width: 100%;
++	height: 100%;
++	background: #fff;
++	-webkit-transform-origin: 50% 100%;
++	transform-origin: 50% 100%;
++	-webkit-transition: -webkit-transform 0.3s;
++	transition: transform 0.3s;
++}
++
++.input__label-content--ichiro {
++	-webkit-transform-origin: 0% 50%;
++	transform-origin: 0% 50%;
++	-webkit-transition: -webkit-transform 0.3s;
++	transition: transform 0.3s;
++}
++
++.input__field--ichiro:focus,
++.input--filled .input__field--ichiro {
++	opacity: 1;
++	-webkit-transform: scale3d(1, 1, 1);
++	transform: scale3d(1, 1, 1);
++}
++
++.input__field--ichiro:focus + .input__label--ichiro,
++.input--filled .input__label--ichiro {
++	cursor: default;
++	pointer-events: none;
++}
++
++.input__field--ichiro:focus + .input__label--ichiro::before,
++.input--filled .input__label--ichiro::before {
++	-webkit-transform: scale3d(1, 1.5, 1);
++	transform: scale3d(1, 1.5, 1);
++}
++
++.input__field--ichiro:focus + .input__label--ichiro .input__label-content--ichiro,
++.input--filled .input__label-content--ichiro {
++	-webkit-transform: translate3d(0, -3.15em, 0) scale3d(0.8, 0.8, 1);
++	transform: translate3d(0, -3.15em, 0) scale3d(0.8, 0.8, 1) translateZ(1px);
++}
++
++/* Juro */
++.input--juro {
++	overflow: hidden;
++}
++
++.input__field--juro {
++	position: absolute;
++	z-index: 100;
++	padding: 2.15em 0.75em 0;
++	width: 100%;
++	background: transparent;
++	color: #1784cd;
++	font-size: 0.85em;
++}
++
++.input__label--juro {
++	padding: 0;
++	width: 100%;
++	height: 100%;
++	background: #fff;
++	text-align: left;
++}
++
++.input__label-content--juro {
++	padding: 2em 1em;
++	-webkit-transform-origin: 0% 50%;
++	transform-origin: 0% 50%;
++	-webkit-transition: -webkit-transform 0.3s, color 0.3s;
++	transition: transform 0.3s, color 0.3s;
++
++	text-rendering: geometricPrecision;
++}
++
++.input__label--juro::before {
++	content: '';
++	position: absolute;
++	top: 0;
++	left: 0;
++	width: 100%;
++	height: 100%;
++	border: 0px solid transparent;
++	-webkit-transition: border-width 0.3s, border-color 0.3s;
++	transition: border-width 0.3s, border-color 0.3s;
++}
++
++.input__field--juro:focus + .input__label--juro::before,
++.input--filled .input__label--juro::before {
++	border-width: 8px;
++	border-color: #1784cd;
++	border-top-width: 2em;
++}
++
++.input__field--juro:focus + .input__label--juro .input__label-content--juro,
++.input--filled .input__label--juro .input__label-content--juro {
++	color: #fff;
++	-webkit-transform: translate3d(0, -1.5em, 0) scale3d(0.75, 0.75, 1);
++	transform: translate3d(0, -1.5em, 0) scale3d(0.75, 0.75, 1) translateZ(1px);
++}
++
++/* Hideo */
++.input--hideo {
++	overflow: hidden;
++	background: #fff;
++}
++
++.input__field--hideo {
++	padding: 0.85em 0.85em 0.85em 3em;
++	width: 100%;
++	background: transparent;
++	-webkit-transform: translate3d(1em, 0, 0);
++	transform: translate3d(1em, 0, 0);
++	-webkit-transition: -webkit-transform 0.3s;
++	transition: transform 0.3s;
++}
++
++.input__label--hideo {
++	position: absolute;
++	padding: 1.25em 0 0;
++	width: 4em;
++	height: 100%;
++}
++
++.input__label--hideo::before {
++	content: '';
++	position: absolute;
++	top: 0;
++	left: 0;
++	z-index: -1;
++	width: 4em;
++	height: 100%;
++	background: #899dda;
++	-webkit-transform-origin: 0% 50%;
++	transform-origin: 0% 50%;
++	-webkit-transition: -webkit-transform 0.3s;
++	transition: transform 0.3s;
++}
++
++.icon--hideo {
++	color: #fff;
++	-webkit-transform: scale3d(1, 1, 1); /* Needed for Chrome bug */
++	transform: scale3d(1, 1, 1);
++	-webkit-transform-origin: 0% 50%;
++	transform-origin: 0% 50%;
++	-webkit-transition: -webkit-transform 0.3s;
++	transition: transform 0.3s;
++}
++
++.input__label-content--hideo {
++	position: absolute;
++	top: 100%;
++}
++
++.input__field--hideo:focus {
++	-webkit-transform: translate3d(0, 0, 0);
++	transform: translate3d(0, 0, 0);
++}
++
++.input__field--hideo:focus + .input__label--hideo::before {
++	-webkit-transform: scale3d(0.8, 1, 1);
++	transform: scale3d(0.8, 1, 1);
++}
++
++.input__field--hideo:focus + .input__label--hideo .icon--hideo {
++	-webkit-transform: scale3d(0.6, 0.6, 1);
++	transform: scale3d(0.6, 0.6, 1);
++}
++
++/* Madoka */
++.input--madoka {
++	margin: 1.1em;
++}
++
++.input__field--madoka {
++	width: 100%;
++	background: transparent;
++	color: #7A7593;
++}
++
++.input__label--madoka {
++	position: absolute;
++	width: 100%;
++	height: 100%;
++	color: #7A7593;
++	text-align: left;
++	cursor: text;
++}
++
++.input__label-content--madoka {
++	-webkit-transform-origin: 0% 50%;
++	transform-origin: 0% 50%;
++	-webkit-transition: -webkit-transform 0.3s;
++	transition: transform 0.3s;
++}
++
++.graphic--madoka {
++	-webkit-transform: scale3d(1, -1, 1);
++	transform: scale3d(1, -1, 1);
++	-webkit-transition: stroke-dashoffset 0.3s;
++	transition: stroke-dashoffset 0.3s;
++	pointer-events: none;
++
++	stroke: #7A7593;
++	stroke-width: 4px;
++	stroke-dasharray: 962;
++	stroke-dashoffset: 558;
++}
++
++.input__field--madoka:focus + .input__label--madoka,
++.input--filled .input__label--madoka {
++	cursor: default;
++	pointer-events: none;
++}
++
++.input__field--madoka:focus + .input__label--madoka .graphic--madoka,
++.input--filled .graphic--madoka {
++	stroke-dashoffset: 0;
++}
++
++.input__field--madoka:focus + .input__label--madoka .input__label-content--madoka,
++.input--filled .input__label-content--madoka {
++	-webkit-transform: scale3d(0.81, 0.81, 1) translate3d(0, 4em, 0);
++	transform: scale3d(0.81, 0.81, 1) translate3d(0, 4em, 0);
++}
++
++/* Kaede */
++.input--kaede {
++	display: block;
++	overflow: hidden;
++	margin: 1em auto 2em;
++	background: #EFEEEE;
++}
++
++.input__field--kaede {
++	position: absolute;
++	top: 0;
++	right: 100%;
++	width: 60%;
++	height: 100%;
++	background: #fff;
++	color: #9DABBA;
++	-webkit-transition: -webkit-transform 0.5s;
++	transition: transform 0.5s;
++	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
++	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
++}
++
++.input__label--kaede {
++	z-index: 10;
++	display: block;
++	width: 100%;
++	height: 100%;
++	text-align: left;
++	cursor: text;
++	-webkit-transform-origin: 0% 50%;
++	transform-origin: 0% 50%;
++	-webkit-transition: -webkit-transform 0.5s;
++	transition: transform 0.5s;
++	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
++	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
++}
++
++.input__label-content--kaede {
++	padding: 1.5em 0;
++}
++
++.input__field--kaede:focus,
++.input--filled .input__field--kaede {
++	-webkit-transform: translate3d(100%, 0, 0);
++	transform: translate3d(100%, 0, 0);
++	-webkit-transition-delay: 0.06s;
++	transition-delay: 0.06s;
++}
++
++.input__field--kaede:focus + .input__label--kaede,
++.input--filled .input__label--kaede  {
++	-webkit-transform: translate3d(60%, 0, 0);
++	transform: translate3d(60%, 0, 0);
++	pointer-events: none;
++}
++
++@media screen and (max-width: 34em) {
++	.input__field--kaede:focus + .input__label--kaede,
++	.input--filled .input__label--kaede  {
++		-webkit-transform: translate3d(65%, 0, 0) scale3d(0.65, 0.65, 1);
++		transform: translate3d(65%, 0, 0) scale3d(0.65, 0.65, 1);
++		pointer-events: none;
++	}
++}
++
++/* Isao */
++.input__field--isao {
++	z-index: 10;
++	padding: 0.75em 0.1em 0.25em;
++	width: 100%;
++	background: transparent;
++	color: #afb3b8;
++}
++
++.input__label--isao {
++	position: relative;
++	overflow: hidden;
++	padding: 0;
++	width: 100%;
++	color: #dadada;
++	text-align: left;
++}
++
++.input__label--isao::before {
++	content: '';
++	position: absolute;
++	top: 0;
++	width: 100%;
++	height: 7px;
++	background: #dadada;
++	-webkit-transform: scale3d(1, 0.4, 1);
++	transform: scale3d(1, 0.4, 1);
++	-webkit-transform-origin: 50% 100%;
++	transform-origin: 50% 100%;
++	-webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
++	transition: transform 0.3s, background-color 0.3s;
++	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
++	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
++}
++
++.input__label--isao::after {
++	content: attr(data-content);
++	position: absolute;
++	top: 0;
++	left: 0;
++	padding: 0.75em 0.15em;
++	color: #da7071;
++	opacity: 0;
++	-webkit-transform: translate3d(0, 50%, 0);
++	transform: translate3d(0, 50%, 0);
++	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
++	transition: opacity 0.3s, transform 0.3s;
++	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
++	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
++	pointer-events: none;
++}
++
++.input__field--isao:focus + .input__label--isao::before {
++	background-color: #da7071;
++	-webkit-transform: scale3d(1, 1, 1);
++	transform: scale3d(1, 1, 1);
++}
++
++.input__field--isao:focus + .input__label--isao {
++	pointer-events: none;
++}
++
++.input__field--isao:focus + .input__label--isao::after {
++	opacity: 1;
++	-webkit-transform: translate3d(0, 0, 0);
++	transform: translate3d(0, 0, 0);
++}
++
++.input__label-content--isao {
++	padding: 0.75em 0.15em;
++	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
++	transition: opacity 0.3s, transform 0.3s;
++	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
++	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
++}
++
++.input__field--isao:focus + .input__label--isao .input__label-content--isao {
++	opacity: 0;
++	-webkit-transform: translate3d(0, -50%, 0);
++	transform: translate3d(0, -50%, 0);
++}
+\ No newline at end of file
+diff --git a/css/styles.css b/css/styles.css
+new file mode 100644
+index 0000000..8d7eadd
+--- /dev/null
++++ b/css/styles.css
+@@ -0,0 +1,284 @@
++#title {
++  font-family: 'Fredericka the Great', cursive;
++  color: #464545;
++  line-height: 109px;
++  font-size: 7em;
++  display: flex;
++  justify-content: center;
++  padding-top: 25px;
++  text-shadow: 1px 1px 25px #FFFFFF;
++  text-transform: uppercase;
++  margin-left: 50px;
++}
++
++#white {
++  background: white;
++  width: 100%;
++  display: flex;
++  flex-wrap: wrap;
++  list-style: none;
++  /* margin-top: 50px; */
++  padding-top: 50px;
++
++}
++
++#result-container {
++  width: 100%;
++}
++
++#result {
++  font-family: 'Fredericka the Great', cursive;
++  color: rgba(235, 48, 141, 0.8);
++  line-height: 99px;
++  font-size: 7em;
++  padding: 20px 40px;
++  display: flex;
++  text-align: center;
++  width: 100%;
++  justify-content: center;
++  background: white;
++  font-weight: 100;
++  margin: auto;
++  text-shadow: 1px 1px 6px #464545;
++  text-transform: uppercase;
++}
++
++#noresult {
++  font-family: 'Fredericka the Great', cursive;
++  color: rgba(235, 48, 141, 0.8);
++  line-height: 99px;
++  font-size: 7em;
++  padding: 20px 40px;
++  display: flex;
++  text-align: center;
++  background: white;
++  justify-content: center;
++  /* width: 100%; */
++  margin: auto;
++  text-shadow: 1px 1px 6px #464545;
++  text-transform: uppercase;
++}
++
++.error {
++  color: red;
++  width: 100%;
++}
++
++/* book cards */
++.btn {
++  background-color: white;
++  border: 1px solid #cccccc;
++  color: #696969;
++  padding: 0.5rem;
++  text-transform: lowercase;
++}
++
++.btn--block {
++  display: block;
++  width: 100%;
++}
++
++.cards {
++  display: flex;
++  flex-wrap: wrap;
++  list-style: none;
++  padding-top: 50px;
++}
++
++.cards__item {
++  display: flex;
++  padding: 1rem;
++}
++
++@media (min-width: 40rem) {
++  .cards__item {
++    width: 50%;
++  }
++}
++
++@media (min-width: 56rem) {
++  .cards__item {
++    width: 30%;
++  }
++}
++
++.card {
++  background-color: white;
++  border-radius: 0.25rem;
++  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
++  display: flex;
++  width: 400px;
++  flex-direction: column;
++  overflow: hidden;
++}
++
++.card:hover .card__image {
++  filter: contrast(100%);
++}
++
++.card__content {
++  display: flex;
++  flex: 1 1 auto;
++  flex-direction: column;
++  padding: 1rem;
++}
++
++.card__image {
++  background-position: center center;
++  background-repeat: no-repeat;
++  background-size: cover;
++  border-top-left-radius: 0.25rem;
++  border-top-right-radius: 0.25rem;
++  filter: contrast(70%);
++  margin: 16px auto 0 auto;
++  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
++  overflow: hidden;
++  position: relative;
++  transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
++}
++
++.card__title {
++  color: #696969;
++  font-size: 1.25rem;
++  font-weight: 300;
++  letter-spacing: 2px;
++  text-transform: uppercase;
++}
++
++.card__text {
++  flex: 1 1 auto;
++  font-size: 0.875rem;
++  line-height: 1.5;
++  margin-bottom: 1.25rem;
++}
++
++.container:before {
++  background: linear-gradient(to right bottom, rgba(247, 165, 215, 0.8), rgba(217, 30, 77, 0.8)), url('https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80') center / cover;
++  content: '';
++  position: absolute;
++  left: 0;
++  right: 0;
++  top: 0;
++  bottom: 0;
++  z-index: -1;
++  width: 100%;
++  opacity: 0.8;
++}
++
++#search-btn {
++  height: 54px;
++  text-transform: uppercase;
++  color: rgba(217, 30, 77, 0.8);
++  font-family: 'McLaren', sans-serif;
++  background: white;
++  margin-top: 10px;
++  font-weight: bold;
++  border: none;
++  padding: 10px 18px 10px 18px;
++  font-size: 70.25% !important;
++  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
++}
++
++#and {
++  letter-spacing: 11px;
++  width: 98%;
++  text-align: center;
++}
++
++#andmore {
++  font-size: 29px;
++  line-height: 33px;
++  width: 100px;
++  padding-top: 20px;
++}
++
++#books {
++  width: 300px;
++  font-size: 85px;
++}
++
++#oneline {
++  display: flex;
++  flex-wrap: wrap;
++  margin: auto;
++  font-family: 'Fredericka the Great', cursive;
++  color: #464545;
++  line-height: 99px;
++  font-size: 7em;
++  justify-content: center;
++  padding: 0px 40px;
++  text-align: center;
++  text-shadow: 1px 1px 25px #FFFFFF;
++  text-transform: uppercase;
++}
++
++.text-box {
++  text-align: center;
++  margin-left: auto;
++  margin-right: auto;
++  padding-bottom: 20px;
++  text-shadow: 1px 1px 25px #FFFFFF;
++  text-transform: uppercase;
++  border-radius: 40px;
++}
++
++.input__field:focus {
++  outline: none;
++}
++
++@media (max-width: 767px) {
++  #books {
++    width: 190px;
++    font-size: 60px;
++  }
++
++  #oneline {
++    line-height: 0.87;
++    width: 78%;
++    margin: 0px 50px 50px -11px;
++    padding: 8px 40px;
++    justify-content: center;
++  }
++
++  #noresult {
++    display: flex;
++    justify-content: center;
++    font-size: 4em;
++    padding: 0px 40px;
++    width: 81%;
++  }
++
++  #result {
++    display: flex;
++    justify-content: center;
++    font-size: 5em;
++    height: 100%;
++    width: 81%;
++    padding: 60px 40px 68px 40px;
++  }
++
++  .error {}
++
++  #and {
++    font-size: 6vw;
++    width: 100%;
++    text-align: center;
++  }
++
++  #andmore {
++    font-size: 6vw;
++    line-height: 27px;
++    width: 76px;
++    padding-top: 0px;
++  }
++
++  #title {
++    font-size: 22vw;
++    line-height: 85px;
++    margin: 50px 50px 0px 50px;
++  }
++
++  .cards {
++    display: block;
++  }
++}
+diff --git a/css/styles.less b/css/styles.less
+new file mode 100644
+index 0000000..5c74a95
+--- /dev/null
++++ b/css/styles.less
+@@ -0,0 +1,247 @@
++#title {
++  font-family: 'Fredericka the Great', cursive;
++  color: rgb(70, 69, 69);
++  line-height: 109px;
++  font-size: 7em;
++  display: flex;
++  justify-content: center;
++  padding-top: 25px;
++  text-shadow: 1px 1px 25px #FFFFFF;
++  text-transform: uppercase;
++  margin-left: 50px;
++}
++
++#result-container {
++  width: 100%;
++}
++
++#result {
++  font-family: 'Fredericka the Great', cursive;
++  color: rgba(235, 48, 141, 0.8);
++  line-height: 99px;
++  font-size: 7em;
++  padding: 10px 40px;
++  display: flex;
++  text-align: center;
++  width: 50%;
++  margin: auto;
++  text-shadow: 1px 1px 6px rgb(70, 69, 69);
++  text-transform: uppercase;
++}
++
++.error {
++  color: red;
++}
++
++/* book cards */
++.btn {
++  background-color: white;
++  border: 1px solid #cccccc;
++  color: #696969;
++  padding: 0.5rem;
++  text-transform: lowercase;
++}
++
++.btn--block {
++  display: block;
++  width: 100%;
++}
++
++.cards {
++  display: flex;
++  flex-wrap: wrap;
++  list-style: none;
++  background-color: white !important;
++  padding-top: 50px;
++}
++
++.cards__item {
++  display: flex;
++  padding: 1rem;
++}
++
++@media (min-width: 40rem) {
++  .cards__item {
++    width: 50%;
++  }
++}
++
++@media (min-width: 56rem) {
++  .cards__item {
++    width: 30%;
++  }
++}
++
++.card {
++  background-color: white;
++  border-radius: 0.25rem;
++  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
++  display: flex;
++  width: 400px;
++  flex-direction: column;
++  overflow: hidden;
++}
++
++.card:hover .card__image {
++  filter: contrast(100%);
++}
++
++.card__content {
++  display: flex;
++  flex: 1 1 auto;
++  flex-direction: column;
++  padding: 1rem;
++}
++
++.card__image {
++  background-position: center center;
++  background-repeat: no-repeat;
++  background-size: cover;
++  border-top-left-radius: 0.25rem;
++  border-top-right-radius: 0.25rem;
++  filter: contrast(70%);
++  margin: 16px auto 0 auto;
++  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
++  overflow: hidden;
++  position: relative;
++  transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
++}
++
++.card__title {
++  color: #696969;
++  font-size: 1.25rem;
++  font-weight: 300;
++  letter-spacing: 2px;
++  text-transform: uppercase;
++}
++
++.card__text {
++  flex: 1 1 auto;
++  font-size: 0.875rem;
++  line-height: 1.5;
++  margin-bottom: 1.25rem;
++}
++
++.container:before {
++  background: linear-gradient(to right bottom, rgba(247, 165, 215, 0.8), rgba(217, 30, 77, 0.8)), url('https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80') center / cover;
++  content: '';
++  position: absolute;
++  left: 0;
++  right: 0;
++  top: 0;
++  bottom: 0;
++  z-index: -1;
++  width: 100%;
++  opacity: 0.8;
++}
++
++#search-btn {
++  height: 54px;
++  text-transform: uppercase;
++  color: rgba(217, 30, 77, 0.8);
++  font-family: 'McLaren', sans-serif;
++  background: white;
++  margin-top: 10px;
++  font-weight: bold;
++  border: none;
++  padding: 10px 18px 10px 18px;
++  font-size: 70.25% !important;
++  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
++}
++
++#and {
++  letter-spacing: 11px;
++  width: 98%;
++  text-align: center;
++}
++
++#andmore {
++  font-size: 29px;
++  line-height: 33px;
++  width: 100px;
++  padding-top: 20px;
++}
++
++#books {
++  width: 300px;
++  font-size: 85px;
++}
++
++#oneline {
++  display: flex;
++  flex-wrap: wrap;
++  margin: auto;
++  font-family: 'Fredericka the Great', cursive;
++  color: rgb(70, 69, 69);
++  line-height: 99px;
++  font-size: 7em;
++  justify-content: center;
++  padding: 0px 40px;
++  text-align: center;
++  text-shadow: 1px 1px 25px #FFFFFF;
++  text-transform: uppercase;
++
++}
++
++.text-box {
++  text-align: center;
++  margin-left: auto;
++  margin-right: auto;
++  padding-bottom: 20px;
++  text-shadow: 1px 1px 25px #FFFFFF;
++  text-transform: uppercase;
++  border-radius: 40px;
++}
++
++.flex-container {
++  background: white;
++}
++
++.input__field:focus {
++  outline: none;
++}
++
++@media (max-width: 767px) {
++  #books {
++    width: 190px;
++    font-size: 60px;
++  }
++
++  #oneline {
++    line-height: .87;
++    width: 78%;
++    margin: 0px 50px 50px -11px;
++    padding: 8px 40px;
++    justify-content: center;
++  }
++
++  #result {
++    display: flex;
++    justify-content: center;
++    font-size: 4em;
++    padding: 0px 40px;
++  }
++
++  #and {
++    font-size: 6vw;
++    width: 100%;
++    text-align: center;
++  }
++
++  #andmore {
++    font-size: 6vw;
++    line-height: 27px;
++    width: 76px;
++    padding-top: 0px;
++  }
++
++  #title {
++    font-size: 22vw;
++    line-height: 85px;
++    margin: 50px 50px 0px 50px;
++  }
++
++  .cards {
++    display: block;
++  }
++}
+diff --git a/images/favicon-16x16.png b/images/favicon-16x16.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..b11ba7f405d885b2a61280a6ff42e4d363652d6b
+GIT binary patch
+literal 680
+zcmV;Z0$2TsP)<h;3K|Lk000e1NJLTq000mG000mO1^@s6AM^iV00009a7bBm000ie
+z000ie0hKEb8vp<TT1iAfR5*=&lg~?3Q545N@6DYzKOCKLvIrp)TBKIes)C|Lt7=<|
+zpn_VI6tyVmPiWO%68aZ{s2~!ej3C3LR%s-rNt(aL`FY>m``){^#VC!U9r(iKob&yj
+zbG~o^+-4Xh9~vc<QF6j4d3I}kE1dNQ07m(JV7~xjJypfwfa|4K*dhLrwFK-?6B!_b
+z<=Rf<O#)ah0>`%LIrl$-4UxwETIN)F^^H-|Het<be@748W~I{VpU%?S(kWRjHm7qI
+zo7p<mD8GBt3HrxWx8u4afaljr7!x)3r;V1vXqh%zb{HkkTN_<k{x#7MkfURn&@tnI
+z@;hRp;i2-YjY%fL8uI{)!cxJq2)rn+F5KAN)!T5~@!~gwOd^+S%@Gp<RhQIdg;Yxx
+zRrkxObmmU;I)1H86o#Jxgd837oP688RBMhv*HM0mE8;kg1Aw)*t(hDK3RztvmCod6
+zC&v+v5Le>aY$x@AL@bU;C9&2JxGpA&a9tOyB@8uTpz&)ZV!{JgoRPBL?-XARe~+~4
+zjFkQccwWA}zvW1;8zu!|7?MaNiK37|2L!rK-1BH@&9SmLkN<n&xv0!cU$xfx+I4#%
+z1ehCq+!GXwPqQbF_h<o*;}DN0NF>uh4q2;ESe~a^DMGb+c++3lh`GU`e5UW<NaE<B
+zKH&%0N)4kmv6eKkY%4bDF*iGfJ2~@YTLFN=>*4#E-kwLrkDs2YLgB5oHjH`Rey=@$
+zI=Oex33j!!^!~$Tu^kzpHvRLZURk{!l*<?P-5S`sVRtN@x?5dZeD@bcIw@eaN<)wU
+O0000<MNUMnLSTXt&O5yT
+
+literal 0
+HcmV?d00001
+
+diff --git a/images/favicon-32x32.png b/images/favicon-32x32.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..8d75150ae3991a15075e11169c3ea84d5f12149c
+GIT binary patch
+literal 1644
+zcmV-y29x=TP)<h;3K|Lk000e1NJLTq001BW001Be1^@s6b9#F800009a7bBm000ie
+z000ie0hKEb8vp<X9!W$&R9J<rmrICbR~g5D=iEo#x^=6nyK4GD#;$}(7&0R0A_hf?
+z62>e<6e5U-WDyrV(-G7~5HUL!E`ka!GBZZA5JXUL6C#3$gAX!E;{?P>k22__GwJEq
+z)bl>-zRqz`)s^b*s_stogTuYwchC3z|K~g3d0aR~bP`DwN3W<jj8z<MsW^H=#nBH`
+z94;Q``+pIYgkM#0s1LX39hHP<{@3_o_>_Pevr9m!IIMwK13f>*{dM5uvQT7_|4DQ?
+zG>m^7)5Y`C!2$H62>s-A|KoMZ6j4d|Y0ytk2jAl$o;kM95h5lTRT4UA@doIJPZ;I2
+zwB3#OLqHyQ4n&LZoEUr{PfUq>tbV8l28G9GL9|Z{uf-=0Sl)jP$b#FHh2lqrppM{E
+zAbxiO3LiNc)59{c2F7J)eeH=t(R;<K)XgKh`9g@Qu!{#rdaO*YfuX+h)|#W?#W?a!
+zzq5N(98aSw6XH(PRUB3hemFEoDhWNqvY!{w0EqhmaX&bU#Hn%rgYiZ$N!UQ}xoJ$_
+z^~m#Is674pxGm^4LF;KQ?osT9;5D>(8F+oqc4%J1*H#~}7Uv(2g3jml0Whr;{m930
+z%hN&P$VO;q7~2`P3h)86_&%U^H*d?G^))%yIH&dqjP_=sc~RNM`F_}&2+)su6A84N
+zyP=AsAAw#$V^5~13H{c#K>U8Laqj*-VD`YnYpah4w|KrU^PyQ_*+uL^k-Y_zXDKSr
+z_Jxf?pGsx+E1<s#)4&HAjKbc$hU<H_gH!NrU9XVD0ghY7^=1%az%kELI?YYAQY1+q
+zr|6BG!oa^>bjufEYJCj)`EAe|f&TNJZB&HewbirIEj}5`obt>(rE(2{K&e4C48y{!
+z)B(uScwb<patHL07nCfG=|_WU)$pf-8IZuUs^&?zTt#b5x3xu@^Z^h;;(9YUZW+V0
+z$<t&MxF3Z$MfZp!8?;vR+B*z`QLCRGZ7Om&`bAkPK4sTx7^a0`m{evLs4v`4eZE1p
+zwm_D~gnk>x^~lF+An?0*UUlknMr*pQ?NKIe+W{e7e(UDnoDl)wTjt`tEe#VPB+@WP
+z&RLcK0<SvQXQVXHT8;JttrbE}##ebpr?t6n%50}Z7<4}rMg5NfnBle6nk?8Cgkhjs
+z9dweSl|mQ>!YN>SF1gA{`T?#tL+H0LOdF+gvMi%8xQ+pX6_RBMd6trADQOxb7}Sq6
+z3{0y)!70(Yw~f~NG2p5RTu^c1#sB&@DoMz~5S0!_Z4_**N)>aihP60Hn)I;?Me;mD
+zDMjFSsm`7vj(oIM7^VdXq%<)KCbr{Znihs>@5@RU`bflQ!fUIS&2VGm8+pG^76zy^
+z`8!%%2Q~o{p&v#Xj~C|`+)`@^`%DAj7BHj%Xp~Z<afmg{Lg04?<Z?w4N5pZ2X-G<5
+znNqoiWjpjEpDfJ~@X4Tg?}iy|ZoUM(s^Kq<l?%;-^SFNLaxJ=h_j_63uT-*>!r2Eg
+zZHF{TFbo6RaYw7gbv=ZXNNMaV(oSoaesl+~GE3<9&<wV<sMTy9dmq@7w_mvOwBZ)7
+z%$z%C+8=y~W_y?F%qgUlXss}<!c^ZpO9}igez!@IB*aOAt0eKO*MD;4ePCQ)T3LQ6
+z52G)(*VdB!UK=4Kre%?5=>R;-(LsdjbWz<Ny8mwF8>WR@@~F?B9v!A;5EHdqe>ial
+z#xn8c*+(DwrFgJ`Wm$+$K(@7m?#JYDJX%3Up@1+=WYxo{%^=Hzt-IH4vvKD?ly7fy
+z@5YUVqpn$#Mer*X$3H6-U01a_gm2y?+S(%R_3nUfGC0^g5cip-l51D16lQCfl`_VB
+zo$_pzl3gV4_WtqV=bqbs&jgk(E~}ki|7P1g`_Kc?KX1{!b?fI^^WDbE@|}H|x^zXR
+zesDJPgU7;+jW1Z`@_FafoNdp}Qa2>)&E{3ue-@nh->$#A^V`l}Ut7_6<^x}AtSleA
+zg2|<e%L=$TY(HIp;Yuy-_MVcq^^ECxXOh7G<2Zr$^lzs%&xUv3xeqXxE?&quEQkCX
+qE6cmU58u9Y`Nwgy`6b{gz<&XW1oGl4&t(q)0000<MNUMnLSTY^*CcHK
+
+literal 0
+HcmV?d00001
+
+diff --git a/index.html b/index.html
+index a834a71..0e8e0fa 100644
+--- a/index.html
++++ b/index.html
+@@ -1,20 +1,65 @@
+-<html>
+-  <head>
+-    <title>Google Books Search Engine</title>
+-    <!-- fetch polyfill if your browser doesn't support fetch -->
+-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script> -->
+-    <link rel="stylesheet" href="styles.css">
+-  </head>
+-  <body>
+-    <div id="search-area">
+-      <input id="search-bar" type="text" placeholder="Input search term here">
+-      <button id="search-btn">Search</button>
++<!DOCTYPE html>
++<html lang="en">
++
++<head>
++  <meta charset="UTF-8">
++  <meta name="viewport" content="width=device-width, initial-scale=1.0">
++  <meta http-equiv="X-UA-Compatible" content="ie=edge">
++  <title>Google Books Search Engine</title>
++  <!-- fetch polyfill if your browser doesn't support fetch -->
++  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script> -->
++  <style>
++    [v-cloak] {
++                    display: none;
++                }
++        </style>
++  <link rel="stylesheet" href="./css/styles.css">
++  <link rel="icon" type="image/png" href="./images/favicon-32x32.png" sizes="32x32" />
++  <link rel="icon" type="image/png" href="./images/favicon-16x16.png" sizes="16x16" />
++  <link rel="stylesheet" type="text/css" href="./css/normalize.css" />
++  <link rel="stylesheet" type="text/css" href="./css/set1.css" />
++  <link rel="stylesheet" type="text/css" href="./css/component.css" />
++  <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
++
++  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
++  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
++</head>
++
++<body>
++  <div id="app" v-cloak id="page-body" class="container">
++    <header class="header">
++      <div id="title">
++        Books <br /> Books <br />
++      </div>
++      <section id="oneline">
++        <section id="andmore">
++          <span id="and">and</span>
++          <br />more</section>
++        <section id="books">Books</section>
++      </section>
++      <div class="text-box">
++        <form @submit.prevent="searchForBooks">
++          <section>
++            <span class="input input--ichiro">
++              <input v-model="query" required class="input__field input__field--ichiro" type="text" id="input-25" />
++              <label class="input__label input__label--ichiro" for="input-25">
++                <span class="input__label-content input__label-content--ichiro">Enter Book Name</span>
++              </label>
++            </span><br />
++            <button id="search-btn" type="submit" :disabled="processing">
++              <span v-if="!processing">Search</span>
++              <span v-else>Searching...</span>
++            </button>
++          </section>
++        </form>
++      </div>
++    </header>
++    <div>
++      <div id="results" class="cards flex-container">
++      </div>
+     </div>
+-    <div id="results-area">
+-      <ul id="results"></ul>
+-    </div>
+-    <script src="main.js"></script>
+-    <!-- for babel transpilation -->
+-    <!-- <script src="main.min.js"></script> -->
+-  </body>
++  </div>
++  <script src="main.js"></script>
++</body>
++
+ </html>
+\ No newline at end of file
+diff --git a/main.js b/main.js
+index f3144bb..e3d7657 100644
+--- a/main.js
++++ b/main.js
+@@ -1,15 +1,77 @@
+-// Renders an error message
+-function showError(msg) {
+-  const html = `<li><p class="error">${msg}</p></li>`;
+-  document.querySelector('#results').innerHTML = html;
+-}
++var app = new Vue({
++  el: '#app',
++  data: {
++    query: '',
++    PageTitle: 'I am title',
++    items: [],
++    processing: false
++  },
++  methods: {
++    getAuthorNames(authors) {
++      if (authors)
++        return authors.join(", ")
++      return ""
++    },
++    showError(error) {
++      const html = `<p class="error">${error}</p>`;
++      document.querySelector('#results').innerHTML = html;
++    },
++    render(items) {
++      var html = "<h1 id='result'>Result</h1>";
++      var authors = "";
++      items.forEach(function (item) {
++        var visible = '';
++        if (item.volumeInfo.authors) {
++          authors = item.volumeInfo.authors.join(", ")
++        }
++        if ('subtitle' in item.volumeInfo && item.volumeInfo.subtitle != '') {
++          visible = 'inline-block';
++        } else {
++          visible = 'none';
++        }
++        html += `<div class="cards__item flex-item">
++        <div class="card">
++          <div class="card__image">
++            <img  src="${item.volumeInfo.imageLinks.thumbnail}"
++              alt="${item.volumeInfo.title}">
++          </div>
++          <div class="card__content">
++            <div class="card__title">Title: ${ item.volumeInfo.title }</div>
++            <div class="card__text"> Author: ${authors}</div>
++            <p  style="display:${visible};">
++              Subtitle: ${ item.volumeInfo.subtitle }</p>
++            <a target="_blank" href="${item.volumeInfo.infoLink}">
++              <button class="btn btn--block card__btn">View more about this book</button>
++            </a>
++          </div>
++        </div>
++      </div>`;
++      });
++      document.querySelector('#results').innerHTML = html;
++    },
+ 
+-// Searches for books and returns a promise that resolves a JSON list
+-function searchForBooks(term) {
+-  // TODO
+-}
++    // Searches for books and returns a promise that resolves a JSON list
++    searchForBooks: function () {
++      var self = this
++      if (this.query == "") {
++        alert("Enter Search Query.")
++        return
++      }
++      this.processing = true
++      this.items = []
++      axios.get("https://www.googleapis.com/books/v1/volumes?q=" + this.query)
++        .then(function (response) {
++          if (response.data.totalItems > 0) {
++            self.items = response.data.items
++            self.processing = false;
++            self.render(self.items);
++          };
+ 
+-// Generate HTML and sets #results's contents to it
+-function render() {
+-  // TODO
+-}
++
++        }).catch(function (error) {
++          self.processing = false
++          self.showError('<span id="noresult"> No items found</span>');
++        })
++    }
++  }
++})
+\ No newline at end of file
+-- 
+2.3.2 (Apple Git-55)
+
